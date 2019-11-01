@@ -56,8 +56,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
-                Log.i("DEBUG", "Auth Successful: "+result);
-                startActivity(new Intent(MainActivity.this, TopSecretActivity.class));
+                String success = "Fingerprint authorized successfully";
+                Log.i("DEBUG", success);
+                Intent i = new Intent(MainActivity.this, TopSecretActivity.class);
+                i.putExtra("KEY_S", success);
+                startActivity(i);
                 finish();
             }
 
@@ -73,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     private BiometricPrompt.PromptInfo getPromptInformation(){
         return new BiometricPrompt.PromptInfo.Builder()
                 .setTitle("Bio Authentication")
-                .setSubtitle("Perform action to get access")
+                .setSubtitle("Fingerprint authentication")
                 .setDescription("Top secret information given behind this page")
                 //.setDeviceCredentialAllowed(true)  It create other options like, Enter Password, Security Pin or Patterns
                 .setNegativeButtonText("Cancel")
