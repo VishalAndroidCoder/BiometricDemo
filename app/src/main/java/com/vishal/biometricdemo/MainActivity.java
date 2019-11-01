@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private void checkWhetherDeviceSupportBiometric() {
         BiometricManager manager = BiometricManager.from(this);
         if (manager.canAuthenticate() == BiometricManager.BIOMETRIC_SUCCESS){
+            // If your device support Bio Metric It prompt Finger-print pop-up
             BiometricPrompt biometricPrompt = getBiometricPromptInstance();
             biometricPrompt.authenticate(getPromptInformation());
 
