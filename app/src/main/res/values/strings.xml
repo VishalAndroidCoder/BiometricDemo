@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Biometric Demo</string>
+    <string name="welcome_to_secure_environment">Welcome to Secure Environment</string>
+    <string name="try_again">Try Again</string>
+</resources>
